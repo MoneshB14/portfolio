@@ -4,14 +4,14 @@ import { Mail, Github, Linkedin, MapPin, Clock, Send } from "lucide-react"
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-20 md:py-28 bg-white dark:bg-gray-900">
+    <section id="contact" className="py-20 md:py-28 bg-white">
       <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div className="text-center mb-16 max-w-3xl mx-auto animate-fadeIn">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             Get in <span className="gradient-text">Touch</span>
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400">
+          <p className="text-lg text-gray-600">
             Open to discussing new opportunities, innovative projects, and enterprise backend solutions
           </p>
         </div>
@@ -19,52 +19,52 @@ export default function Contact() {
         <div className="grid lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
           {/* Contact Information Cards */}
           <div className="lg:col-span-1 space-y-4">
-            <Card className="border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300 animate-slideIn">
+            <Card className="border border-gray-200 hover:shadow-xl transition-all duration-300 animate-slideIn">
               <CardContent className="p-6 text-center space-y-4">
-                <div className="w-14 h-14 mx-auto rounded-xl bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center">
-                  <Mail className="w-7 h-7 text-blue-600 dark:text-blue-400" />
+                <div className="w-14 h-14 mx-auto rounded-xl bg-blue-50 flex items-center justify-center">
+                  <Mail className="w-7 h-7 text-blue-600" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Email</h3>
+                  <h3 className="font-semibold text-gray-900 mb-2">Email</h3>
                   <a
                     href="mailto:monesh141001@gmail.com"
-                    className="text-sm text-blue-600 dark:text-blue-400 hover:underline break-all"
+                    className="text-sm text-blue-600 hover:underline break-all"
                   >
                     monesh141001@gmail.com
                   </a>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">
+                  <p className="text-xs text-gray-500 mt-2">
                     Response within 24 hours
                   </p>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300 animate-slideIn" style={{ animationDelay: '0.1s' }}>
+            <Card className="border border-gray-200 hover:shadow-xl transition-all duration-300 animate-slideIn" style={{ animationDelay: '0.1s' }}>
               <CardContent className="p-6 text-center space-y-4">
-                <div className="w-14 h-14 mx-auto rounded-xl bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center">
-                  <MapPin className="w-7 h-7 text-blue-600 dark:text-blue-400" />
+                <div className="w-14 h-14 mx-auto rounded-xl bg-blue-50 flex items-center justify-center">
+                  <MapPin className="w-7 h-7 text-blue-600" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Location</h3>
-                  <p className="text-sm text-gray-700 dark:text-gray-300">Chennai, Tamil Nadu</p>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">India</p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">UTC +5:30 (IST)</p>
+                  <h3 className="font-semibold text-gray-900 mb-2">Location</h3>
+                  <p className="text-sm text-gray-700">Chennai, Tamil Nadu</p>
+                  <p className="text-sm text-gray-600">India</p>
+                  <p className="text-xs text-gray-500 mt-2">UTC +5:30 (IST)</p>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300 animate-slideIn" style={{ animationDelay: '0.2s' }}>
+            <Card className="border border-gray-200 hover:shadow-xl transition-all duration-300 animate-slideIn" style={{ animationDelay: '0.2s' }}>
               <CardContent className="p-6 text-center space-y-4">
-                <div className="w-14 h-14 mx-auto rounded-xl bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center">
-                  <Clock className="w-7 h-7 text-blue-600 dark:text-blue-400" />
+                <div className="w-14 h-14 mx-auto rounded-xl bg-blue-50 flex items-center justify-center">
+                  <Clock className="w-7 h-7 text-blue-600" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Availability</h3>
+                  <h3 className="font-semibold text-gray-900 mb-2">Availability</h3>
                   <div className="flex items-center justify-center gap-2">
                     <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                    <span className="text-sm text-gray-700 dark:text-gray-300">Available</span>
+                    <span className="text-sm text-gray-700">Available</span>
                   </div>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">
+                  <p className="text-xs text-gray-500 mt-2">
                     Open to full-time & consulting
                   </p>
                 </div>
@@ -75,9 +75,9 @@ export default function Contact() {
           {/* Main Contact Section */}
           <div className="lg:col-span-2 space-y-6">
             {/* Professional Networks */}
-            <Card className="border border-gray-200 dark:border-gray-700 animate-slideUp">
+            <Card className="border border-gray-200 animate-slideUp">
               <CardContent className="p-8 md:p-10">
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Connect</h3>
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">Connect</h3>
                 <div className="grid sm:grid-cols-2 gap-4">
                   <Button variant="outline" asChild className="h-auto p-4 justify-start group">
                     <a
@@ -86,8 +86,8 @@ export default function Contact() {
                       rel="noopener noreferrer"
                       className="flex items-center gap-3"
                     >
-                      <div className="w-10 h-10 bg-gray-900 dark:bg-gray-100 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <Github className="w-5 h-5 text-white dark:text-gray-900" />
+                      <div className="w-10 h-10 bg-gray-900 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <Github className="w-5 h-5 text-white" />
                       </div>
                       <div className="text-left">
                         <div className="font-semibold text-sm">GitHub</div>
@@ -120,8 +120,8 @@ export default function Contact() {
                       rel="noopener noreferrer"
                       className="flex items-center gap-3"
                     >
-                      <div className="w-10 h-10 bg-black dark:bg-white rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <span className="text-white dark:text-black text-xs font-bold">DEV</span>
+                      <div className="w-10 h-10 bg-black rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <span className="text-white text-xs font-bold">DEV</span>
                       </div>
                       <div className="text-left">
                         <div className="font-semibold text-sm">Dev Community</div>
@@ -134,13 +134,13 @@ export default function Contact() {
             </Card>
 
             {/* Services */}
-            <Card className="border border-gray-200 dark:border-gray-700 animate-slideUp" style={{ animationDelay: '0.1s' }}>
+            <Card className="border border-gray-200 animate-slideUp" style={{ animationDelay: '0.1s' }}>
               <CardContent className="p-8 md:p-10">
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Available Services</h3>
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">Available Services</h3>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-3">
-                    <h4 className="font-semibold text-gray-900 dark:text-white">Backend Development</h4>
-                    <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                    <h4 className="font-semibold text-gray-900">Backend Development</h4>
+                    <ul className="space-y-2 text-sm text-gray-600">
                       <li className="flex items-center gap-2">
                         <div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div>
                         <span>Spring Boot Applications</span>
@@ -160,8 +160,8 @@ export default function Contact() {
                     </ul>
                   </div>
                   <div className="space-y-3">
-                    <h4 className="font-semibold text-gray-900 dark:text-white">Cloud & DevOps</h4>
-                    <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                    <h4 className="font-semibold text-gray-900">Cloud & DevOps</h4>
+                    <ul className="space-y-2 text-sm text-gray-600">
                       <li className="flex items-center gap-2">
                         <div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div>
                         <span>AWS Cloud Solutions</span>
@@ -183,9 +183,9 @@ export default function Contact() {
                 </div>
 
                 {/* CTA */}
-                <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
+                <div className="mt-8 pt-6 border-t border-gray-200">
                   <div className="text-center space-y-4">
-                    <h4 className="text-lg font-semibold text-gray-900 dark:text-white">
+                    <h4 className="text-lg font-semibold text-gray-900">
                       Ready to start your project?
                     </h4>
                     <div className="flex flex-col sm:flex-row gap-3 justify-center">
