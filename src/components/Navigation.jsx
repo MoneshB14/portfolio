@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { Button } from "./ui/button"
 import { Menu, X } from "lucide-react"
+import { ScrollSmoother } from "gsap/ScrollSmoother"
 
 const navItems = [
   { name: "Home", href: "#home" },
@@ -42,6 +43,18 @@ export default function Navigation() {
   const scrollToSection = (href) => {
     const element = document.querySelector(href)
     if (element) {
+      // Try to use ScrollSmoother if available
+      try {
+        const smoother = ScrollSmoother.get()
+        if (smoother) {
+          smoother.scrollTo(element, true, "top top")
+          setIsOpen(false)
+          return
+        }
+      } catch (e) {
+        // ScrollSmoother not available, use fallback
+      }
+      // Fallback to smooth scroll
       element.scrollIntoView({ behavior: "smooth" })
     }
     setIsOpen(false)

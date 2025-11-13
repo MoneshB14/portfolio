@@ -1,13 +1,22 @@
+import { useRef } from "react"
 import { Card, CardContent } from "./ui/card"
 import { Button } from "./ui/button"
 import { Mail, Github, Linkedin, MapPin, Clock, Send } from "lucide-react"
+import { useSectionReveal } from "../hooks/useGSAPAnimations"
 
 export default function Contact() {
+  const sectionRef = useRef(null)
+  
+  useSectionReveal(sectionRef, {
+    children: '.contact-card',
+    stagger: 0.1
+  })
+  
   return (
-    <section id="contact" className="py-20 md:py-28 bg-white">
+    <section ref={sectionRef} id="contact" className="py-20 md:py-28 bg-white">
       <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
-        <div className="text-center mb-16 max-w-3xl mx-auto animate-fadeIn">
+        <div className="text-center mb-16 max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             Get in <span className="gradient-text">Touch</span>
           </h2>
@@ -19,10 +28,10 @@ export default function Contact() {
         <div className="grid lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
           {/* Contact Information Cards */}
           <div className="lg:col-span-1 space-y-4">
-            <Card className="border border-gray-200 hover:shadow-xl transition-all duration-300 animate-slideIn">
+            <Card className="contact-card border border-gray-200 gsap-card">
               <CardContent className="p-6 text-center space-y-4">
                 <div className="w-14 h-14 mx-auto rounded-xl bg-blue-50 flex items-center justify-center">
-                  <Mail className="w-7 h-7 text-blue-600" />
+                  <Mail className="w-7 h-7 text-blue-600 gsap-icon" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900 mb-2">Email</h3>
@@ -39,10 +48,10 @@ export default function Contact() {
               </CardContent>
             </Card>
 
-            <Card className="border border-gray-200 hover:shadow-xl transition-all duration-300 animate-slideIn" style={{ animationDelay: '0.1s' }}>
+            <Card className="contact-card border border-gray-200 gsap-card">
               <CardContent className="p-6 text-center space-y-4">
                 <div className="w-14 h-14 mx-auto rounded-xl bg-blue-50 flex items-center justify-center">
-                  <MapPin className="w-7 h-7 text-blue-600" />
+                  <MapPin className="w-7 h-7 text-blue-600 gsap-icon" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900 mb-2">Location</h3>
@@ -53,10 +62,10 @@ export default function Contact() {
               </CardContent>
             </Card>
 
-            <Card className="border border-gray-200 hover:shadow-xl transition-all duration-300 animate-slideIn" style={{ animationDelay: '0.2s' }}>
+            <Card className="contact-card border border-gray-200 gsap-card">
               <CardContent className="p-6 text-center space-y-4">
                 <div className="w-14 h-14 mx-auto rounded-xl bg-blue-50 flex items-center justify-center">
-                  <Clock className="w-7 h-7 text-blue-600" />
+                  <Clock className="w-7 h-7 text-blue-600 gsap-icon" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900 mb-2">Availability</h3>
@@ -75,11 +84,11 @@ export default function Contact() {
           {/* Main Contact Section */}
           <div className="lg:col-span-2 space-y-6">
             {/* Professional Networks */}
-            <Card className="border border-gray-200 animate-slideUp">
+            <Card className="contact-card border border-gray-200 gsap-card">
               <CardContent className="p-8 md:p-10">
                 <h3 className="text-2xl font-bold text-gray-900 mb-6">Connect</h3>
                 <div className="grid sm:grid-cols-2 gap-4">
-                  <Button variant="outline" asChild className="h-auto p-4 justify-start group">
+                  <Button variant="outline" asChild className="h-auto p-4 justify-start group gsap-button">
                     <a
                       href="https://github.com/MoneshB14"
                       target="_blank"
@@ -87,7 +96,7 @@ export default function Contact() {
                       className="flex items-center gap-3"
                     >
                       <div className="w-10 h-10 bg-gray-900 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <Github className="w-5 h-5 text-white" />
+                        <Github className="w-5 h-5 text-white gsap-icon" />
                       </div>
                       <div className="text-left">
                         <div className="font-semibold text-sm">GitHub</div>
@@ -96,7 +105,7 @@ export default function Contact() {
                     </a>
                   </Button>
 
-                  <Button variant="outline" asChild className="h-auto p-4 justify-start group">
+                  <Button variant="outline" asChild className="h-auto p-4 justify-start group gsap-button">
                     <a
                       href="https://linkedin.com/in/monesh-b"
                       target="_blank"
@@ -104,7 +113,7 @@ export default function Contact() {
                       className="flex items-center gap-3"
                     >
                       <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <Linkedin className="w-5 h-5 text-white" />
+                        <Linkedin className="w-5 h-5 text-white gsap-icon" />
                       </div>
                       <div className="text-left">
                         <div className="font-semibold text-sm">LinkedIn</div>
@@ -113,7 +122,7 @@ export default function Contact() {
                     </a>
                   </Button>
 
-                  <Button variant="outline" asChild className="h-auto p-4 justify-start group sm:col-span-2">
+                  <Button variant="outline" asChild className="h-auto p-4 justify-start group sm:col-span-2 gsap-button">
                     <a
                       href="http://dev.to/monesh_b_24cd798d8de84819"
                       target="_blank"
@@ -134,7 +143,7 @@ export default function Contact() {
             </Card>
 
             {/* Services */}
-            <Card className="border border-gray-200 animate-slideUp" style={{ animationDelay: '0.1s' }}>
+            <Card className="contact-card border border-gray-200 gsap-card">
               <CardContent className="p-8 md:p-10">
                 <h3 className="text-2xl font-bold text-gray-900 mb-6">Available Services</h3>
                 <div className="grid md:grid-cols-2 gap-6">
@@ -189,15 +198,15 @@ export default function Contact() {
                       Ready to start your project?
                     </h4>
                     <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                      <Button asChild className="group">
+                      <Button asChild className="group gsap-button">
                         <a href="mailto:monesh141001@gmail.com" className="flex items-center gap-2">
-                          <Send className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                          <Send className="w-4 h-4 gsap-icon" />
                           Send Message
                         </a>
                       </Button>
-                      <Button variant="outline" asChild className="group">
+                      <Button variant="outline" asChild className="group gsap-button">
                         <a href="https://linkedin.com/in/monesh-b" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
-                          <Linkedin className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                          <Linkedin className="w-4 h-4 gsap-icon" />
                           Connect on LinkedIn
                         </a>
                       </Button>

@@ -185,9 +185,28 @@
   }
 }
 
-/* Smooth scrolling */
+/* Smooth scrolling - GSAP ScrollSmoother handles this */
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto; /* Let GSAP handle smooth scrolling */
+}
+
+/* Performance optimizations for animations */
+.gsap-card,
+.gsap-button,
+.gsap-icon {
+  will-change: transform, opacity;
+  transform: translateZ(0); /* Force GPU acceleration */
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 /* Custom scrollbar */

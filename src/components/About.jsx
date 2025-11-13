@@ -1,12 +1,22 @@
+import { useRef } from "react"
 import { Card, CardContent } from "./ui/card"
 import { Shield, Zap, Users, Code } from "lucide-react"
+import { useSectionReveal } from "../hooks/useGSAPAnimations"
 
 export default function About() {
+  const sectionRef = useRef(null)
+  const cardsRef = useRef(null)
+  
+  useSectionReveal(sectionRef, {
+    children: '.about-card',
+    stagger: 0.15
+  })
+  
   return (
-    <section id="about" className="py-20 md:py-28 bg-gray-50">
+    <section ref={sectionRef} id="about" className="py-20 md:py-28 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header - Center Aligned */}
-        <div className="text-center mb-16 max-w-3xl mx-auto animate-fadeIn">
+        <div className="text-center mb-16 max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             Professional <span className="gradient-text">Summary</span>
           </h2>
@@ -16,8 +26,8 @@ export default function About() {
         </div>
 
         {/* Professional Summary - Two Columns */}
-        <div className="max-w-6xl mx-auto mb-20 animate-slideUp">
-          <Card className="border-0 shadow-lg">
+        <div className="max-w-6xl mx-auto mb-20">
+          <Card className="about-card border-0 shadow-lg gsap-card">
             <CardContent className="p-8 md:p-12">
               <div className="grid md:grid-cols-2 gap-8 md:gap-12">
                 <div className="space-y-4">
@@ -97,11 +107,11 @@ export default function About() {
         <div className="max-w-6xl mx-auto">
           <h3 className="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-12">Core Competencies</h3>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 animate-slideUp" style={{ animationDelay: '0.2s' }}>
-            <Card className="group border border-gray-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+          <div ref={cardsRef} className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <Card className="about-card group border border-gray-200 gsap-card">
               <CardContent className="p-6 text-center space-y-4">
                 <div className="w-14 h-14 mx-auto rounded-xl bg-blue-50 flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <Shield className="w-7 h-7 text-blue-600" />
+                  <Shield className="w-7 h-7 text-blue-600 gsap-icon" />
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-2">Security</h4>
@@ -112,10 +122,10 @@ export default function About() {
               </CardContent>
             </Card>
 
-            <Card className="group border border-gray-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+            <Card className="about-card group border border-gray-200 gsap-card">
               <CardContent className="p-6 text-center space-y-4">
                 <div className="w-14 h-14 mx-auto rounded-xl bg-blue-50 flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <Zap className="w-7 h-7 text-blue-600" />
+                  <Zap className="w-7 h-7 text-blue-600 gsap-icon" />
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-2">Performance</h4>
@@ -126,10 +136,10 @@ export default function About() {
               </CardContent>
             </Card>
 
-            <Card className="group border border-gray-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+            <Card className="about-card group border border-gray-200 gsap-card">
               <CardContent className="p-6 text-center space-y-4">
                 <div className="w-14 h-14 mx-auto rounded-xl bg-blue-50 flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <Users className="w-7 h-7 text-blue-600" />
+                  <Users className="w-7 h-7 text-blue-600 gsap-icon" />
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-2">Leadership</h4>
@@ -140,10 +150,10 @@ export default function About() {
               </CardContent>
             </Card>
 
-            <Card className="group border border-gray-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+            <Card className="about-card group border border-gray-200 gsap-card">
               <CardContent className="p-6 text-center space-y-4">
                 <div className="w-14 h-14 mx-auto rounded-xl bg-blue-50 flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <Code className="w-7 h-7 text-blue-600" />
+                  <Code className="w-7 h-7 text-blue-600 gsap-icon" />
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-2">DevOps</h4>
@@ -157,8 +167,8 @@ export default function About() {
         </div>
 
         {/* Current Role Highlight */}
-        <div className="max-w-4xl mx-auto mt-20 animate-fadeIn" style={{ animationDelay: '0.3s' }}>
-          <Card className="border-2 border-blue-100 bg-gradient-to-br from-blue-50/50 to-white">
+        <div className="max-w-4xl mx-auto mt-20">
+          <Card className="about-card border-2 border-blue-100 bg-gradient-to-br from-blue-50/50 to-white gsap-card">
             <CardContent className="p-8 md:p-10 text-center space-y-4">
               <h3 className="text-2xl md:text-3xl font-bold text-gray-900">
                 Associate Software Engineer

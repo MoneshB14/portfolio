@@ -1,5 +1,7 @@
+import { useRef } from "react"
 import { Card, CardContent } from "./ui/card"
 import { Calendar, Building, TrendingUp } from "lucide-react"
+import { useSectionReveal } from "../hooks/useGSAPAnimations"
 
 const experiences = [
   {
@@ -24,11 +26,18 @@ const experiences = [
 ]
 
 export default function Experience() {
+  const sectionRef = useRef(null)
+  
+  useSectionReveal(sectionRef, {
+    children: '.experience-card',
+    stagger: 0.2
+  })
+  
   return (
-    <section id="experience" className="py-20 md:py-28 bg-white">
+    <section ref={sectionRef} id="experience" className="py-20 md:py-28 bg-white">
       <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
-        <div className="text-center mb-16 max-w-3xl mx-auto animate-fadeIn">
+        <div className="text-center mb-16 max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             Work <span className="gradient-text">Experience</span>
           </h2>
@@ -38,15 +47,15 @@ export default function Experience() {
         </div>
 
         {/* Experience Details */}
-        <div className="max-w-4xl mx-auto mb-16 animate-slideUp">
+        <div className="max-w-4xl mx-auto mb-16">
           {experiences.map((exp, index) => (
-            <Card key={index} className="border border-gray-200 hover:shadow-xl transition-all duration-300">
+            <Card key={index} className="experience-card border border-gray-200 gsap-card">
               <CardContent className="p-8 md:p-10">
                 {/* Header */}
                 <div className="mb-8">
                     <div className="flex items-start gap-3 mb-4">
                     <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0">
-                      <Building className="w-6 h-6 text-blue-600" />
+                      <Building className="w-6 h-6 text-blue-600 gsap-icon" />
                     </div>
                     <div className="flex-1">
                       <h3 className="text-2xl font-bold text-gray-900 mb-2">
@@ -99,11 +108,11 @@ export default function Experience() {
         </div>
 
         {/* Performance Metrics */}
-        <div className="max-w-5xl mx-auto animate-fadeIn" style={{ animationDelay: '0.2s' }}>
-          <Card className="border-2 border-blue-100 bg-gradient-to-br from-blue-50/50 to-white">
+        <div className="max-w-5xl mx-auto">
+          <Card className="experience-card border-2 border-blue-100 bg-gradient-to-br from-blue-50/50 to-white gsap-card">
             <CardContent className="p-8 md:p-10">
               <div className="flex items-center justify-center gap-2 mb-8">
-                <TrendingUp className="w-6 h-6 text-blue-600" />
+                <TrendingUp className="w-6 h-6 text-blue-600 gsap-icon" />
                 <h3 className="text-2xl font-bold text-gray-900 text-center">Performance Metrics</h3>
               </div>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">

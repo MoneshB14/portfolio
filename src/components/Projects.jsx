@@ -1,6 +1,7 @@
 import { Card, CardContent } from "./ui/card"
 import { Badge } from "./ui/badge"
 import { Button } from "./ui/button"
+import { useProjectsAnimations } from "../hooks/useProjectsAnimations"
 
 const projects = [
   {
@@ -66,11 +67,13 @@ const projects = [
 ]
 
 export default function Projects() {
+  const { sectionRef, projectsRef } = useProjectsAnimations()
+  
   return (
-    <section id="projects" className="py-20 md:py-28 bg-white">
+    <section ref={sectionRef} id="projects" className="py-20 md:py-28 bg-white relative">
       <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
-        <div className="text-center mb-16 max-w-3xl mx-auto animate-fadeIn">
+        <div className="section-header text-center mb-16 max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             Featured <span className="gradient-text">Projects</span>
           </h2>
@@ -80,12 +83,11 @@ export default function Projects() {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-6xl mx-auto mb-16">
+        <div ref={projectsRef} className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-6xl mx-auto mb-16">
           {projects.map((project, index) => (
             <Card
               key={index}
-              className="group h-full border border-gray-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 animate-slideUp"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className="project-card group h-full border border-gray-200 gsap-card"
             >
               <CardContent className="p-6 md:p-8 h-full flex flex-col">
                 {/* Header */}
@@ -145,8 +147,8 @@ export default function Projects() {
         </div>
 
         {/* CTA */}
-        <div className="text-center max-w-2xl mx-auto animate-fadeIn" style={{ animationDelay: '0.5s' }}>
-          <Card className="border border-gray-200">
+        <div className="text-center max-w-2xl mx-auto">
+          <Card className="border border-gray-200 gsap-card">
             <CardContent className="p-8 md:p-10 space-y-6">
               <h3 className="text-2xl md:text-3xl font-bold text-gray-900">
                 Let's Build Something Great
@@ -155,10 +157,10 @@ export default function Projects() {
                 Open to discussing new opportunities and innovative projects that push the boundaries of backend development.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <Button size="lg" asChild>
+                <Button size="lg" asChild className="gsap-button">
                   <a href="#contact">Get in Touch</a>
                 </Button>
-                <Button variant="outline" size="lg" asChild>
+                <Button variant="outline" size="lg" asChild className="gsap-button">
                   <a href="mailto:monesh141001@gmail.com">Send Email</a>
                 </Button>
               </div>

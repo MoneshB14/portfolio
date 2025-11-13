@@ -6,42 +6,49 @@ import Skills from './components/Skills'
 import Experience from './components/Experience'
 import Education from './components/Education'
 import Contact from './components/Contact'
+import BackgroundAnimation from './components/BackgroundAnimation'
+import { useScrollSmoother, useMicroInteractions } from './hooks/useGSAPAnimations'
 
 function App() {
+  useScrollSmoother()
+  useMicroInteractions()
+
   return (
-    <div className="min-h-screen bg-white">
-      <Navigation />
+    <div id="smooth-wrapper" className="min-h-screen bg-white overflow-hidden">
+      <div id="smooth-content">
+        <BackgroundAnimation />
+        <Navigation />
 
-      <main className="relative">
-        <section id="home">
-          <Hero />
-        </section>
+        <main className="relative">
+          <section id="home">
+            <Hero />
+          </section>
 
-        <section id="about">
-          <About />
-        </section>
+          <section id="about">
+            <About />
+          </section>
 
-        <section id="projects">
-          <Projects />
-        </section>
+          <section id="projects">
+            <Projects />
+          </section>
 
-        <section id="skills">
-          <Skills />
-        </section>
+          <section id="skills">
+            <Skills />
+          </section>
 
-        <section id="experience">
-          <Experience />
-        </section>
+          <section id="experience">
+            <Experience />
+          </section>
 
-        <section id="education">
-          <Education />
-        </section>
+          <section id="education">
+            <Education />
+          </section>
 
-        <Contact />
-      </main>
+          <Contact />
+        </main>
 
-      {/* Minimal Footer */}
-      <footer className="bg-gray-900 border-t border-gray-800 py-8">
+        {/* Minimal Footer */}
+        <footer className="bg-gray-900 border-t border-gray-800 py-8">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             {/* Copyright */}
@@ -85,7 +92,8 @@ function App() {
             </div>
           </div>
         </div>
-      </footer>
+        </footer>
+      </div>
     </div>
   )
 }

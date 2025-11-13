@@ -1,6 +1,8 @@
+import { useRef } from "react"
 import { Card, CardContent } from "./ui/card"
 import { GraduationCap, Calendar, Award, BookOpen } from "lucide-react"
 import { Button } from "./ui/button"
+import { useSectionReveal } from "../hooks/useGSAPAnimations"
 
 const education = [
   {
@@ -26,11 +28,18 @@ const certificates = [
 ]
 
 export default function Education() {
+  const sectionRef = useRef(null)
+  
+  useSectionReveal(sectionRef, {
+    children: '.education-card',
+    stagger: 0.15
+  })
+  
   return (
-    <section id="education" className="py-20 md:py-28 bg-gray-50">
+    <section ref={sectionRef} id="education" className="py-20 md:py-28 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
-        <div className="text-center mb-16 max-w-3xl mx-auto animate-fadeIn">
+        <div className="text-center mb-16 max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             Education & <span className="gradient-text">Certifications</span>
           </h2>
@@ -41,15 +50,15 @@ export default function Education() {
 
         <div className="max-w-5xl mx-auto space-y-12">
           {/* Academic Background */}
-          <div className="animate-slideUp">
+          <div>
             <h3 className="text-2xl font-bold text-gray-900 text-center mb-8">Academic Background</h3>
             <div className="grid md:grid-cols-2 gap-6">
               {education.map((edu, index) => (
-                <Card key={index} className="border border-gray-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                <Card key={index} className="education-card border border-gray-200 gsap-card">
                   <CardContent className="p-6 md:p-8">
                     <div className="flex items-start gap-4 mb-4">
                       <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0">
-                        <edu.icon className="w-6 h-6 text-blue-600" />
+                        <edu.icon className="w-6 h-6 text-blue-600 gsap-icon" />
                       </div>
                       <div className="flex-1 min-w-0">
                         <h4 className="text-lg font-bold text-gray-900 mb-2 leading-tight">
@@ -79,11 +88,11 @@ export default function Education() {
           </div>
 
           {/* Certifications */}
-          <div className="animate-slideUp" style={{ animationDelay: '0.2s' }}>
-            <Card className="border border-gray-200">
+          <div>
+            <Card className="education-card border border-gray-200 gsap-card">
               <CardContent className="p-8 md:p-10">
                 <div className="flex items-center gap-2 mb-6">
-                  <Award className="w-6 h-6 text-blue-600" />
+                  <Award className="w-6 h-6 text-blue-600 gsap-icon" />
                   <h3 className="text-2xl font-bold text-gray-900">Professional Certifications</h3>
                 </div>
                 <div className="grid md:grid-cols-3 gap-4">
@@ -99,11 +108,11 @@ export default function Education() {
           </div>
 
           {/* Publications */}
-          <div className="animate-fadeIn" style={{ animationDelay: '0.3s' }}>
-            <Card className="border border-gray-200">
+          <div>
+            <Card className="education-card border border-gray-200 gsap-card">
               <CardContent className="p-8 md:p-10">
                 <div className="flex items-center gap-2 mb-6">
-                  <BookOpen className="w-6 h-6 text-blue-600" />
+                  <BookOpen className="w-6 h-6 text-blue-600 gsap-icon" />
                   <h3 className="text-2xl font-bold text-gray-900">Publications & Writing</h3>
                 </div>
                 <p className="text-gray-700 leading-relaxed mb-6">
@@ -121,14 +130,14 @@ export default function Education() {
                     Best Practices
                   </span>
                 </div>
-                <Button variant="outline" asChild>
+                <Button variant="outline" asChild className="gsap-button">
                   <a 
                     href="http://dev.to/monesh_b_24cd798d8de84819" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2"
                   >
-                    <BookOpen className="w-4 h-4" />
+                    <BookOpen className="w-4 h-4 gsap-icon" />
                     Read Articles on Dev Community
                   </a>
                 </Button>
